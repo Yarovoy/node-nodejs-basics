@@ -1,6 +1,6 @@
 import { access, writeFile } from 'node:fs/promises';
 
-const ifFileExists = async (filePath) => {
+const existsAsync = async (filePath) => {
   let fileExist = true;
 
   try {
@@ -15,7 +15,7 @@ const ifFileExists = async (filePath) => {
 const create = async () => {
   const filePath = './files/fresh.txt';
 
-  if (await ifFileExists(filePath)) {
+  if (await existsAsync(filePath)) {
     throw new Error('FS operation failed');
   }
 
