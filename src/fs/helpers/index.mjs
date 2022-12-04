@@ -1,5 +1,9 @@
 import { access } from 'node:fs/promises';
 
+const messages = {
+  FS_OPERATION_FAILED: 'FS operation failed',
+};
+
 const existsAsync = async (filePath) => {
   let fileExist = true;
 
@@ -12,4 +16,4 @@ const existsAsync = async (filePath) => {
   return fileExist;
 };
 
-export { existsAsync };
+export { messages, existsAsync };

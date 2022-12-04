@@ -1,12 +1,14 @@
 import { writeFile } from 'node:fs/promises';
 
-import { existsAsync } from './helpers/existsAsync.js';
+import { existsAsync, messages } from './helpers/index.mjs';
+
+const { FS_OPERATION_FAILED } = messages;
 
 const create = async () => {
   const filePath = './src/fs/files/fresh.txt';
 
   if (await existsAsync(filePath)) {
-    throw new Error('FS operation failed');
+    throw new Error(FS_OPERATION_FAILED);
   }
 
   await writeFile(filePath, 'I am fresh and young');
