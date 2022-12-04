@@ -1,16 +1,6 @@
-import { access, writeFile } from 'node:fs/promises';
+import { writeFile } from 'node:fs/promises';
 
-const existsAsync = async (filePath) => {
-  let fileExist = true;
-
-  try {
-    await access(filePath);
-  } catch (error) {
-    fileExist = false;
-  }
-
-  return fileExist;
-};
+import { existsAsync } from './helpers/existsAsync.js';
 
 const create = async () => {
   const filePath = './files/fresh.txt';
